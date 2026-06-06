@@ -3,7 +3,6 @@
 ## CI/CD Evreni
 
 ```
-
 CI/CD:           (Jenkins, Git,  GitHub, GitOps,  GitHub Actions,    GitLab, GitLab CI,    Bitbucket, Bamboo)
 Scripting        (Python, Bash, PowerShell)
 Containers:      (Docker)
@@ -14,7 +13,6 @@ IaC:             (Terraform, Ansible, CloudFormation)
 Monitoring:      (Prometheus, Grafana, ELK)
 ```
 
-![DevOps 3 - Cloud_Terraform.jpg](public/DevOps%203%20-%20Cloud_Terraform.jpg)
 
 ---
 
