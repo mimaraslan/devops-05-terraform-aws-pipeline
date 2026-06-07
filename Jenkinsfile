@@ -130,7 +130,7 @@ pipeline {
     }
     steps {
         withDockerRegistry([credentialsId: 'dockerhub',  url: 'https://index.docker.io/v1/']) {
-             sh "docker build  -t  devops-05-terraform-aws-pipeline:latest . "
+             sh "docker buildx build  -t  devops-05-terraform-aws-pipeline:latest . "
              sh "docker tag devops-05-terraform-aws-pipeline mimaraslan/devops-05-terraform-aws-pipeline:latest "
              sh "docker push mimaraslan/devops-05-terraform-aws-pipeline:latest "
         }
@@ -138,6 +138,7 @@ pipeline {
 }
 
 
+// OLD
 /*
          stage("Docker Build & Push"){
              steps{
@@ -163,45 +164,6 @@ pipeline {
             }
         }
 */
-
-
-/*
-
-        stage('DockerHub') {
-            steps {
-                echo "Image DockerHub'a gönder."
-                 script {
-                    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-
-
-                            if (isUnix()) {
-                             //   sh 'docker login    -u mimaraslan     -p   %dockerhub%'
-                                sh 'docker push mimaraslan/devops-application:latest'
-                            } else {
-                             //    bat 'docker login    -u mimaraslan     -p   %dockerhub%'
-                                 bat 'docker push mimaraslan/devops-application:latest'
-                            }
-                        }
-                 }
-
-            }
-        }
-*/
-
-
-// ODEV
-/*
-   stage('Docker DockerHub') {
-            steps {
-                 script {
-                     docker.withRegistry('', DOCKER_PASS) {
-                         docker.build(IMAGE_TAG)
-                     }
-                }
-            }
-        }
-*/
-
 
 
 /*
