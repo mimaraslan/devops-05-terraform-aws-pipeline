@@ -456,7 +456,7 @@ https://github.com/mimaraslan/devops-05-terraform-aws-pipeline/settings/hooks
 
 #### EKS'DE ÇALIŞAN SADECE DEPLOYMENT'I YOK ETMEK.
 ```
-kubectl delete deployment.apps/my-workspace-cluster
+kubectl delete deployment.apps/my-workspace
 ```
 
 #### EKS'DE ÇALIŞAN SADECE SERVISI YOK ETMEK.
@@ -474,8 +474,8 @@ kubectl delete namespace prometheus
 
 ### Elimizle kurduğumuz EKS'deki nodeları ve onların kullandığı tüm AWS kaynaklarını hepten silme komutları
 ```
-export AWS_DEFAULT_REGION=us-west-1
-eksctl delete cluster   --name my-workspace-cluster
+export AWS_DEFAULT_REGION=us-west-2
+eksctl delete cluster   --name my-workspace
 ```
 
 ### Sadece Terraform'un yönettiği kaynakları silme komutu.
