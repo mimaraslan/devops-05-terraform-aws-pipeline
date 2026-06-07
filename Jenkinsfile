@@ -117,6 +117,11 @@ pipeline {
     }
     steps {
         withDockerRegistry([credentialsId: 'dockerhub',  url: 'https://index.docker.io/v1/']) {
+          // TODO SAYACLI TAG EKLE
+          //  sh "docker build  -t  devops-05-terraform-aws-pipeline:SAYAC . "
+          //  sh "docker tag devops-05-terraform-aws-pipeline mimaraslan/devops-05-terraform-aws-pipeline:SAYAC "
+          //  sh "docker push mimaraslan/devops-05-terraform-aws-pipeline:SAYAC "
+
              sh "docker build  -t  devops-05-terraform-aws-pipeline:latest . "
              sh "docker tag devops-05-terraform-aws-pipeline mimaraslan/devops-05-terraform-aws-pipeline:latest "
              sh "docker push mimaraslan/devops-05-terraform-aws-pipeline:latest "
@@ -134,10 +139,7 @@ pipeline {
                 sh "trivy image devops-05-terraform-aws-pipeline:latest > trivyimage.txt"
             }
         }
-
 */
-
-
 
 
 
