@@ -91,22 +91,7 @@ pipeline {
 
 
 
-
-
-/*
-        stage('Docker Image') {
-                         steps {
-                              script {
-                                 if (isUnix()) {
-                                     sh 'docker build  -t  mimaraslan/devops-05-terraform-aws-pipeline:latest  .'
-                                 } else {
-                                     bat 'docker build  -t  mimaraslan/devops-05-terraform-aws-pipeline:latest  .'
-                                 }
-                             }
-                         }
-        }
-*/
-
+// OK
 
      stage('Docker Image Clean') {
             steps {
@@ -124,6 +109,8 @@ pipeline {
 
 
 
+// OK
+
   stage("Docker Build & Push"){
     environment {
         DOCKER_API_VERSION = '1.44'
@@ -138,64 +125,36 @@ pipeline {
 }
 
 
-// OLD
-/*
-         stage("Docker Build & Push"){
-             steps{
-                 script{
-                   withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker'){
-                      sh "docker build  -t  devops-05-terraform-aws-pipeline:latest . "
-                      sh "docker tag devops-05-terraform-aws-pipeline mimaraslan/devops-05-terraform-aws-pipeline:latest "
-                      sh "docker push mimaraslan/devops-05-terraform-aws-pipeline:latest "
-                    }
-                }
-            }
-        }
-*/
-
-
 
 
 // OK
-
+/*
         stage("Trivy Image Scan"){
             steps{
                 sh "trivy image devops-05-terraform-aws-pipeline:latest > trivyimage.txt"
             }
         }
 
-
-
-/*
-        stage('Kubernetes (K8s)') {
-            steps {
-                 script {
-                      kubernetesDeploy (configs: 'deployment-service.yml',  kubeconfigId: 'kubernetes')
-                     echo "K8s içinde image'ı çalıştır."
-                 }
-
-            }
-        }
- */
+*/
 
 
 
 
-/*
+
         stage('Deploy to Kubernetes'){
             steps{
                 script{
                     dir('kubernetes') {
-                      withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetes', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-                      sh 'kubectl delete --all pods'
-                      sh 'kubectl apply -f deployment.yml'
-                      sh 'kubectl apply -f service.yml'
+                      withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'IdKubernetes', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                          sh 'kubectl delete --all pods'
+                          sh 'kubectl apply -f deployment.yml'
+                          sh 'kubectl apply -f service.yml'
                       }
                     }
                 }
             }
         }
-*/
+
 
 
 

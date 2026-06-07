@@ -14,7 +14,7 @@ export default function Home() {
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            DevOps Pipeline : AWS Jenkins Kubernetes Docker SonarQube Trivy
+            DevOps Pipeline : AWS Jenkins Kubernetes (K8s) Docker SonarQube Trivy
           </h1>
         </div>
 

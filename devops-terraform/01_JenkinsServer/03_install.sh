@@ -87,18 +87,27 @@ sudo apt upgrade -y
 # --nodes 2
 
 
+### EKS cluster'ına bağlanmak için kubeconfig dosyasını kopyalayalım.
+#mkdir -p ~/.kube
+#cp /home/ubuntu/.kube/config ~/.kube/config
+#chown $(id -u):$(id -g) ~/.kube/config
+
+
 ### Helm kurulumu
-#curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+#curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 #chmod 700 get_helm.sh
 #./get_helm.sh
-## helm version
-#
 #helm repo add stable https://charts.helm.sh/stable
 #helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-#
+#helm repo update
+#helm version
+
+### Prometheus kurulumu - K8s Pod'un içine kurulacak.
 #kubectl create namespace prometheus
 #helm install stable prometheus-community/kube-prometheus-stack -n prometheus
 #kubectl get pods -n prometheus
+
+
 
 ### ArgoCD kurulumu
 

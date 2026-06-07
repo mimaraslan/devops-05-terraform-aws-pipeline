@@ -72,11 +72,20 @@ sudo systemctl start node_exporter
 
 
 
-##Install Grafana
-sudo apt-get update
-sudo apt-get install -y apt-transport-https software-properties-common
-wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
-echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+##Install Grafana for Ubuntu 24
+#sudo apt-get update
+#sudo apt-get install -y apt-transport-https software-properties-common
+#wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+#echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+#sudo apt-get update
+#sudo apt-get -y install grafana
+#sudo systemctl enable grafana-server
+#sudo systemctl start grafana-server
+
+##Install Grafana for Ubuntu 26
+wget -q -O grafana.gpg.key https://apt.grafana.com/gpg.key
+gpg --dearmor < grafana.gpg.key | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
 sudo apt-get update
 sudo apt-get -y install grafana
 sudo systemctl enable grafana-server

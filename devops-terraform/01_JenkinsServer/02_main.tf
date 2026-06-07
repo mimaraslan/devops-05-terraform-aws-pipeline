@@ -15,7 +15,7 @@ resource "aws_instance" "web" {
 }
 
 
-// GÖREV 1:
+// GÖREV 1: Elastic IP
 // IP sabitleme Terraform ile yapılacak.
 
 
