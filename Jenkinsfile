@@ -79,7 +79,7 @@ pipeline {
 
 
 // OK
-/*
+
     stage("Trivy FS Scan") {
             steps {
                 script {
@@ -88,7 +88,7 @@ pipeline {
             }
         }
 
-*/
+
 
 
 
@@ -130,7 +130,7 @@ pipeline {
     }
     steps {
         withDockerRegistry([credentialsId: 'dockerhub',  url: 'https://index.docker.io/v1/']) {
-             sh "docker buildx build  -t  devops-05-terraform-aws-pipeline:latest . "
+             sh "docker build  -t  devops-05-terraform-aws-pipeline:latest . "
              sh "docker tag devops-05-terraform-aws-pipeline mimaraslan/devops-05-terraform-aws-pipeline:latest "
              sh "docker push mimaraslan/devops-05-terraform-aws-pipeline:latest "
         }
@@ -157,13 +157,13 @@ pipeline {
 
 
 // OK
-/*
+
         stage("Trivy Image Scan"){
             steps{
                 sh "trivy image devops-05-terraform-aws-pipeline:latest > trivyimage.txt"
             }
         }
-*/
+
 
 
 /*
@@ -251,7 +251,7 @@ pipeline {
 
 
 
-/*
+
     post {
      always {
         emailext attachLog: true,
@@ -259,11 +259,11 @@ pipeline {
             body: "Project: ${env.JOB_NAME}<br/>" +
                 "Build Number: ${env.BUILD_NUMBER}<br/>" +
                 "URL: ${env.BUILD_URL}<br/>",
-            to: 'YOUR_MAIL@gmail.com',
+            to: 'dr.mimaraslan@gmail.com',
             attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
         }
     }
-*/
+
 
 
 }
