@@ -279,6 +279,7 @@ sudo nano prometheus.yml
     - targets: ["JenkinsMakinesininPublicIP:8080"]
 ```
 
+prometheus.yml'de yapılan değişikliklerin uygulanması için bu 2 komutu çalıştırmalıyız.
 
 ```
 promtool check config /etc/prometheus/prometheus.yml
