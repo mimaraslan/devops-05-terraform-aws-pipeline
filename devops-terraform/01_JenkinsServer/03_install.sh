@@ -8,7 +8,7 @@ sudo apt install openjdk-21-jdk  -y
 /usr/bin/java –version
 
 
-#jenkins
+#jenkins 8080
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian/jenkins.io-2026.key
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
@@ -31,7 +31,7 @@ newgrp docker
 sudo chmod 777 /var/run/docker.sock
 
 
-#sonarqube
+#sonarqube  9000
 docker run -d    --name sonar    -p 9000:9000        --restart unless-stopped      sonarqube:latest
 
 # Bilgisayar acildigida Docker'in uzerinde calisan sonarqube containerlarıni otomatik çalıştırma yapmazsak bizzat calistirmak zorunda kaliriz..
