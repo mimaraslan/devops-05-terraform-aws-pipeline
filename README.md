@@ -130,16 +130,6 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 
-
-
-
-
-SonarQube aracını Jenkins'e tanıtmak için Token oluşturuyoruz.
-
-http://SONARIN_KURULU_OLDUGU_MAKINENIN_PUBLIC_IP:9000/admin/users
-
-
-
 SonarQube aracını Jenkins'e tanıtmak için Token oluşturuyoruz.
 
 http://SONARIN_KURULU_OLDUGU_MAKINENIN_PUBLIC_IP:9000/admin/users
