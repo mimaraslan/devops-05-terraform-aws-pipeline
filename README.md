@@ -240,7 +240,7 @@ sudo nano prometheus.yml
     - targets: ["MonitoringMakinesinin_PUBLIC_IP:9090"]
 ```
 
-
+prometheus.yml'de yapılan değişikliklerin uygulanması için bu 2 komutu çalıştırmalıyız.
 ```
 promtool check config /etc/prometheus/prometheus.yml
 
