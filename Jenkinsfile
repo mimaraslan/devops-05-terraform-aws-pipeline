@@ -2,6 +2,7 @@ pipeline {
      agent any
 
     tools {
+        jdk 'Java21'
         nodejs 'NodeJS24'
     }
 
@@ -41,23 +42,31 @@ pipeline {
             }
         }
 
-     stage('SonarQube Scan') {
-                steps {
-                    script {
-                        def scannerHome = tool 'sonar-scanner'
-                        withSonarQubeEnv('SonarTokenForJenkins') {
-                            sh """
-                            ${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=devops-05-terraform-aws-pipeline \
-                            -Dsonar.projectName=devops-05-terraform-aws-pipeline
-                            """
-                        }
+
+// OK
+
+        stage('SonarQube Scan') {
+            steps {
+                script {
+                    def scannerHome = tool 'sonar-scanner'
+                    withSonarQubeEnv('SonarTokenForJenkins') {
+                        sh """
+                        ${scannerHome}/bin/sonar-scanner \
+                        -Dsonar.projectKey=devops-05-terraform-aws-pipeline \
+                        -Dsonar.projectName=devops-05-terraform-aws-pipeline \
+                        -Dsonar.sources=. \
+                        -Dsonar.exclusions=**/node_modules/**
+                        """
                     }
                 }
             }
+        }
 
 
 
+
+// OK
+/*
       stage("Quality Gate") {
             steps {
                 script {
@@ -65,23 +74,12 @@ pipeline {
                 }
             }
         }
-
-
-
-/*
-        stage('Docker Image') {
-            steps {
-                 script {
-                    if (isUnix()) {
-                        sh 'docker build  -t  mimaraslan/devops-05-terraform-aws-pipeline:latest  .'
-                    } else {
-                        bat 'docker build  -t  mimaraslan/devops-05-terraform-aws-pipeline:latest  .'
-                    }
-                }
-            }
-        }
 */
 
+
+
+// OK
+/*
     stage("Trivy FS Scan") {
             steps {
                 script {
@@ -90,6 +88,24 @@ pipeline {
             }
         }
 
+*/
+
+
+
+
+/*
+        stage('Docker Image') {
+                         steps {
+                              script {
+                                 if (isUnix()) {
+                                     sh 'docker build  -t  mimaraslan/devops-05-terraform-aws-pipeline:latest  .'
+                                 } else {
+                                     bat 'docker build  -t  mimaraslan/devops-05-terraform-aws-pipeline:latest  .'
+                                 }
+                             }
+                         }
+        }
+*/
 
 
      stage('Docker Image Clean') {
@@ -107,6 +123,22 @@ pipeline {
         }
 
 
+
+  stage("Docker Build & Push"){
+    environment {
+        DOCKER_API_VERSION = '1.44'
+    }
+    steps {
+        withDockerRegistry([credentialsId: 'dockerhub',  url: 'https://index.docker.io/v1/']) {
+             sh "docker build  -t  devops-05-terraform-aws-pipeline:latest . "
+             sh "docker tag devops-05-terraform-aws-pipeline mimaraslan/devops-05-terraform-aws-pipeline:latest "
+             sh "docker push mimaraslan/devops-05-terraform-aws-pipeline:latest "
+        }
+    }
+}
+
+
+/*
          stage("Docker Build & Push"){
              steps{
                  script{
@@ -118,31 +150,19 @@ pipeline {
                 }
             }
         }
-
-
-
-// ÖDEV uyarlanacak.
-/*
-    stage('Docker Build Image & Push DockerHub') {
-            steps {
-                 script {
-                     docker.withRegistry('', DOCKER_PASS) {
-                         myDockerImage  =  docker.build "${IMAGE_NAME}"
-                         myDockerImage.push("${IMAGE_TAG}")
-                         myDockerImage.push("latest")
-                     }
-                }
-            }
-        }
 */
 
 
+
+
+// OK
+/*
         stage("Trivy Image Scan"){
             steps{
                 sh "trivy image devops-05-terraform-aws-pipeline:latest > trivyimage.txt"
             }
         }
-
+*/
 
 
 /*
@@ -268,6 +288,8 @@ pipeline {
     }
 
 
+
+/*
     post {
      always {
         emailext attachLog: true,
@@ -279,7 +301,7 @@ pipeline {
             attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
         }
     }
-
+*/
 
 
 }
