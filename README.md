@@ -28,16 +28,21 @@ IAM -> Users -> mydemouser -> Create access key
 
 ---
 
+
 Access key
+```
 AAAAAAAAAAAAAAAAAAA
+```
 
 Secret access key
+```
 BBBBBBBBBBBBBBBBBBBBB
+```
 
 ---
 
 Bir terminal aç. Uzaktaki AWS servislerini yönetmek için kullucaya ait Access key ve Secret access key verilerini girdik.
-
+Bunu sadece 1 kere yapmamız yeterli.
 ```
 aws configure
 ```
@@ -142,7 +147,7 @@ http://SONARIN_KURULU_OLDUGU_MAKINENIN_PUBLIC_IP:9000/admin/users
 
 SonarTokenForJenkins
 ```
-squ_AAAAAAAAAAAA
+squ_SSSSSSSSSSSSSSSSSSSSSSSSSSS
 ```
 
 
@@ -189,10 +194,7 @@ https://github.com/prometheus/node_exporter/releases
 cd  D:\workspace\devops\devops-05-terraform-aws-pipeline\devops-terraform\02_MontitoringServer
 ```
 
-Bunu sadece 1 kere yapmamız yeterli. Burada gerek yok.
-```
-aws configure
-```
+
 
 ```
 terraform init
