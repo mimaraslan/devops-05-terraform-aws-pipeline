@@ -175,7 +175,7 @@ dockerhub
 
 ## 2. Makineyi MontitoringServer Terrafom üzerinden kuracağız.
 
-D:\workspace\devops-2025\devops-05-pipeline-aws\devops-terraform\02_MontitoringServer
+D:\workspace\devops\devops-05-terraform-aws-pipeline\devops-terraform\02_MontitoringServer
 içindeki 03_install.sh  prometheus ve node_exporter sürümlerini güncelle
 
 https://github.com/prometheus/prometheus/releases/
@@ -184,7 +184,7 @@ https://github.com/prometheus/node_exporter/releases
 
 
 ```
-cd  D:\workspace\devops-2025\devops-05-pipeline-aws\devops-terraform\02_MontitoringServer
+cd  D:\workspace\devops\devops-05-terraform-aws-pipeline\devops-terraform\02_MontitoringServer
 ```
 
 Bunu sadece 1 kere yapmamız yeterli. Burada gerek yok.
@@ -445,7 +445,7 @@ sudo reboot
 
 #### GitHub'a bir commit yapıldığında Jenkins'in bundan haberdar olmasını ve otomaik çalışmasını istiyoruz.
 
-https://github.com/mimaraslan/devops-05-pipeline-aws/settings/hooks
+https://github.com/mimaraslan/devops-05-terraform-aws-pipeline/settings/hooks
 
 
 
