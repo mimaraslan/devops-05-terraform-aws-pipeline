@@ -141,7 +141,9 @@ http://SONARIN_KURULU_OLDUGU_MAKINENIN_PUBLIC_IP:9000/admin/users
 
 
 SonarTokenForJenkins
+```
 squ_AAAAAAAAAAAA
+```
 
 
 SonarQubeQualityGates
@@ -306,9 +308,9 @@ Jenkins üzerinden EMAIL attırmak için Gmail'in "App passwords" hizmetinden ya
 YOUR_MAIL_ID@gmail.com
 
 GMAIL_TOKEN
-
+```
 aaaa bbbb cccc dddd
-
+```
 
 ### Docker dangling
 Kullanılmayan imageleri silmek gerekiyor. Makinede dangling birikmesine sebep oluyor.
@@ -360,9 +362,9 @@ eksctl version
 AWS'deki CPU sınırlandırmasına takılmamak için us-west-1 bölgesinde Nodelarımızı oluşturacağız.
 
 ```
-eksctl create cluster --name my-workspace-cluster \
---region us-west-1 \
---node-type t3.large \
+eksctl create cluster --name my-workspace \
+--region us-west-2 \
+--node-type t3.xlarge \
 --nodes 2 
 ```
 
