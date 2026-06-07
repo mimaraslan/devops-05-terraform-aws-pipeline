@@ -12,7 +12,7 @@ Virtualization:  (VMware, VirtualBox)
 IaC:             (Terraform, Ansible, CloudFormation)
 Monitoring:      (Prometheus, Grafana, ELK)
 ```
-
+![DevOps Terraform.jpg](devops-terraform/DevOps%20Terraform.jpg)
 
 ---
 
